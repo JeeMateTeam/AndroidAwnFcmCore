@@ -2,8 +2,6 @@ package me.carda.awesome_notifications_fcm.core.interpreters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -40,7 +38,6 @@ import me.carda.awesome_notifications.core.utils.StringUtils;
 import me.carda.awesome_notifications_fcm.core.FcmDefinitions;
 import me.carda.awesome_notifications_fcm.core.broadcasters.broadcasters.FcmBroadcaster;
 import me.carda.awesome_notifications_fcm.core.builders.FcmNotificationBuilder;
-import me.carda.awesome_notifications_fcm.core.licenses.LicenseManager;
 import me.carda.awesome_notifications_fcm.core.models.SilentDataModel;
 
 
@@ -190,33 +187,6 @@ public class FcmInterpreter {
                 notificationModel.content.id = IntegerUtils.generateNextRandomId();
 
             notificationModel.validate(context);
-
-            boolean isDebuggable = false;
-            try {
-                isDebuggable = ( 0 != (
-                        context
-                        .getPackageManager()
-                        .getApplicationInfo(
-                                AwesomeNotifications.getPackageName(context),
-                                ApplicationInfo.FLAG_DEBUGGABLE)
-                        .flags & ApplicationInfo.FLAG_DEBUGGABLE ) );
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            if(
-                !isDebuggable &&
-                !LicenseManager
-                    .getInstance()
-                    .printValidationTest(context)
-            ){
-                if(!StringUtils.getInstance().isNullOrEmpty(notificationModel.content.title))
-                    notificationModel.content.title =
-                            "[DEMO] "+ notificationModel.content.title;
-                else if(!StringUtils.getInstance().isNullOrEmpty(notificationModel.content.body))
-                    notificationModel.content.body =
-                            "[DEMO] "+ notificationModel.content.body;
-            }
 
             createNotificationContent(
                     context,
