@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.12.1] - 2026-06-21
+### Updated
+- **Native library updated:** AndroidAwnCore updated to 0.12.1.
+
 ## [0.11.0] - 2025-02-13
 ### Breaking changes
 - **License key validation removed:** The `LicenseManager`, `Crypto`, and `Encoder` classes have been completely removed. The `licenseKeys` parameter was removed from `AwesomeNotificationsFcm.initialize()` and `FcmDefaultsManager.saveDefault()`. Notifications are no longer watermarked with `[DEMO]` prefix on release builds.
