@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.12.2] - 2026-06-21
+### Changed
+- **Requires AndroidAwnCore 0.12.2.**
+
 ## [0.12.1] - 2026-06-21
 ### Updated
 - **Native library updated:** AndroidAwnCore updated to 0.12.1.

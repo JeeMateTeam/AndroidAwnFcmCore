@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'me.carda.awesome_notifications_fcm.core'
-version '0.12.1'
+version '0.12.2'
 
 android {
     compileSdkVersion = 36
@@ -45,7 +45,7 @@ def getRootProjectExtOrCoreProperty(name, firebaseCoreProject) {
 }
 
 dependencies {
-    implementation 'me.carda:AndroidAwnCore:0.12.1'
+    implementation 'me.carda:AndroidAwnCore:0.12.2'
 //    implementation project(':awn_core')
 
     implementation 'com.google.android.gms:play-services-base:18.10.0'
@@ -83,7 +83,7 @@ mavenPublishing {
     publishToMavenCentral()
     signAllPublications()
 
-    coordinates('me.carda', 'AndroidAwnFcmCore', '0.12.1')
+    coordinates('me.carda', 'AndroidAwnFcmCore', '0.12.2')
 
     pom {
         name = 'Awesome Notifications FCM Android Core'
